@@ -25,7 +25,7 @@ int main(){
 		usleep(200000);//睡眠5毫秒
 		if(kbhit()){
 			cin>>str;
-			if(str.length()==0)
+			if(str.length()==1)
 				break;
 			if(words.ishit(str)>-1)//判断是否相同)
 				//cout<<str<<endl;

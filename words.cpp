@@ -9,6 +9,7 @@
 #include "words.h"
 //#include <curses.h>
 #include <stdlib.h>
+#include<time.h>
 #include <fstream>
 #include "constant.h"
 #include<iomanip>
@@ -24,9 +25,10 @@ int Words::addscore(){
 	return 1;
 }
 bool Words::updateword(int i){
+	srand((unsigned)time(NULL));
 	switch(i){
 		case 0:
-			word0[0]=sbuf.back();//抽出容器最后一个
+			word0[0]=sbuf[rand()%sbuf.size()];//抽出容器随机一个
 			word0[1]=word0[0].substr(word0[0].find(" "),word0[0].length());
 			word0[0]=word0[0].substr(0,word0[0].find(" "));
 			sbuf.pop_back();
@@ -34,7 +36,7 @@ bool Words::updateword(int i){
 			x0=word0[0].length();
 			break;
 		case 1:
-			word1[0]=sbuf.back();//抽出容器最后一个
+			word1[0]=sbuf[rand()%sbuf.size()];//抽出容器随机一个
 			word1[1]=word1[0].substr(word1[0].find(" "),word1[0].length());
 			word1[0]=word1[0].substr(0,word1[0].find(" "));
 			sbuf.pop_back();
@@ -42,7 +44,7 @@ bool Words::updateword(int i){
 			x1=word1[0].length();
 			break;
 		case 2:
-			word2[0]=sbuf.back();//抽出容器最后一个
+			word2[0]=sbuf[rand()%sbuf.size()];//抽出容器随机一个
 			word2[1]=word2[0].substr(word2[0].find(" "),word2[0].length());
 			word2[0]=word2[0].substr(0,word2[0].find(" "));
 			sbuf.pop_back();
@@ -50,7 +52,7 @@ bool Words::updateword(int i){
 			x2=word2[0].length();
 			break;
 		case 3:
-			word3[0]=sbuf.back();//抽出容器最后一个
+			word3[0]=sbuf[rand()%sbuf.size()];//抽出容器随机一个
 			word3[1]=word3[0].substr(word3[0].find(" "),word3[0].length());
 			word3[0]=word3[0].substr(0,word3[0].find(" "));
 			sbuf.pop_back();
@@ -140,17 +142,19 @@ bool Words::show(int i){
 		//		resetx(k);
 		cout<<endl;
 		cout<<"*******************************************************************"<<endl;
-		cout<<setw(35)<<"你的分数："<<score<<endl;
-		cout<<endl;
-		cout<<endl;
 		cout<<"*******************************************************************"<<endl;
-		cout<<"*****                   你刚消灭的单词是：                    *****"<<endl;
+		cout<<"*******************************************************************"<<endl;
+		cout<<"*****                                                         *****"<<endl;
+		cout<<"*****                                                         *****"<<endl;
 		cout<<" "<<setw(43)<<hitword<<setw(25)<<" "<<endl;
 		cout<<"*****                                                         *****"<<endl;
 		cout<<"*****                                                         *****"<<endl;
 		cout<<"*******************************************************************"<<endl;
 		cout<<"*******************************************************************"<<endl;
-		cout<<"***** 输入数字1退出                直接回车暂停               *****"<<endl;
+		cout<<"*******************************************************************"<<endl;
+		cout<<setw(35)<<"你的分数："<<score<<endl;
+		cout<<"*******************************************************************"<<endl;
+		cout<<"*****                   输入1字符回车退出                     *****"<<endl;
 		cout<<"*******************************************************************"<<endl;
 		cout<<endl;
 		cout<<endl;
